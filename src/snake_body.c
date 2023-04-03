@@ -31,12 +31,14 @@ void snake_body_move(struct snake_body *body)
 
 void snake_body_grow(struct snake_body **body)
 {
+    int new_body_x, new_body_y, dx, dy;
     struct snake_body *new_body;
     new_body = malloc(sizeof(struct snake_body));
-    snake_body_init((*body)->x + (*body)->dx, (*body)->y + (*body)->dy,
-                    (*body)->dx, (*body)->dy,
-                    (*body)->ch,
-                    new_body);
+    dx = (*body)->dx;
+    dy = (*body)->dy;
+    new_body_x = (*body)->x + dx;
+    new_body_y = (*body)->y + dy;
+    snake_body_init(new_body_x, new_body_y, dx, dy, (*body)->ch, new_body);
     new_body->next = *body;
     *body = new_body;
 }
