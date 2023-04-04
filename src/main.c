@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
 
 int main()
 {
@@ -10,6 +11,7 @@ int main()
     srand(time(NULL));
     snake_game_init(&game);
     snake_game_start(&game);
+    printf("Score: %d\n", game.score);
     snake_game_free(&game);
 
     return 0;

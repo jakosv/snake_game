@@ -77,7 +77,6 @@ static void game_show(const struct snake_game *game)
 
 void snake_game_free(struct snake_game *game)
 {
-    endwin();
     snake_free(game->snake);
     free(game->snake);
     free(game->fruit);
@@ -151,4 +150,5 @@ void snake_game_start(struct snake_game *game)
             snake_move(game->snake, game->field); 
         refresh();
     }
+    endwin();
 }
