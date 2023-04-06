@@ -1,6 +1,8 @@
 #ifndef SNAKE_GAME_H_SENTRY
 #define SNAKE_GAME_H_SENTRY
 
+#include <sys/time.h>
+
 struct snake_game {
     struct field *field;
     struct snake *snake;

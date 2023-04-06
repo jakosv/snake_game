@@ -11,8 +11,10 @@ enum {
     snake_head_char = '@', 
     snake_body_char = 'o', 
     snake_tail_char = '+',
-    snake_full_body_char = 'O' 
+    snake_full_body_char = 'O'
 };
+
+enum { snake_color = fc_green };
 
 void snake_init(int x, int y, int dx, int dy, struct snake *snake)
 {
@@ -32,13 +34,13 @@ void snake_free(struct snake *snake)
 static void snake_body_show(const struct snake_body *body,
                      const struct field *field)
 {
-    field_addch(field->x + body->x, field->y + body->y, body->ch);
+    field_addch(body->x, body->y, body->ch, snake_color, field);
 }
 
 static void snake_body_hide(const struct snake_body *body,
-                     const struct field *field)
+                            const struct field *field)
 {
-    field_addch(field->x + body->x, field->y + body->y, ' ');
+    field_addch(body->x, body->y, ' ', snake_color, field);
 }
 
 void snake_hide(const struct snake *snake, const struct field *field)

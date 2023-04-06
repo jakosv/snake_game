@@ -7,9 +7,9 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+enum { delay_duration = 100 };
 enum { field_width = 50, field_height = 15 };
 enum { key_escape = 27 };
-enum { delay_duration = 100 };
 
 static int rand_int(int low, int hight)
 {
